@@ -19,6 +19,8 @@ public class MainClass {
 				else {
 					wage = 160;
 				}
+				
+				wage *= 20;
 				System.out.println(" Employess is present");
 				System.out.println(" The wages earned = " + wage);
 				break;
