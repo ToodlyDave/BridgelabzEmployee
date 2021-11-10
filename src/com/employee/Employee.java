@@ -1,15 +1,19 @@
 package com.employee;
 
-public class MainClass {
+public class Employee {
+	
+	private int wage = 0;
+	private int days = 0;
+	private int hours = 0;
+	private int flag = 0;
 
-	public static void main(String[] args) {
+	public void computeEmployeeWage() {
 		// TODO Auto-generated method stub
-		int wage = 0;
-		int days = 0, hours = 0;
-		int flag = 0;
+		
 		while (days < 20 && hours <= 100) {
 			int attendance = (int)Math.floor( (Math.random() * 10) % 2);
 			double partTime = Math.floor( (Math.random() * 10) % 2);
+			
 			switch (attendance) {
 				case 0:
 					//System.out.println(" Employee is absent. ");
