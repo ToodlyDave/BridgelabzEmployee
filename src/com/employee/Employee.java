@@ -1,21 +1,24 @@
 package com.employee;
 
+import java.util.Scanner;
+
 public class Employee {
 	
-	private static final int NO_OF_DAYS = 20;
-	private static final int MAX_HOURS_IN_MONTH = 100;
-	private static final int WAGES_PER_HOUR = 20;
-	private static final int IS_PART_TIME = 1;
-	private static final int IS_FULL_TIME = 2;
-	private static final int PART_TIME_HOURS = 4;
-	private static final int FULL_TIME_HOURS = 8;
 
-	public void computeEmployeeWage() {		
+	public void computeEmployeeWage(String name, int no_of_days, int max_hours_in_month, int wages_per_hour) {	
+		
+		Scanner scan = new Scanner(System.in);
+		
+		final int IS_PART_TIME = 1;
+		final int IS_FULL_TIME = 2;
+		final int PART_TIME_HOURS = 4;
+		final int FULL_TIME_HOURS = 8;
+		
 		int wage = 0;    
 		int days = 0;    
 		int hours = 0;   
 		
-		while (days < NO_OF_DAYS && hours < MAX_HOURS_IN_MONTH) {
+		while (days < no_of_days && hours < max_hours_in_month) {
 			int attendance = (int)Math.floor( (Math.random() * 10) % 3);
 			
 			switch (attendance) {
@@ -40,8 +43,9 @@ public class Employee {
 			}
 		}
 		
-		wage = hours * WAGES_PER_HOUR;
+		wage = hours * wages_per_hour;
 		
+		System.out.println(" ==== " + name + " ====");
 		System.out.println(" Total wages earned = " + wage);
 		System.out.println(" Total working days = " + days);
 		System.out.println(" Total working hours = " + hours);	
