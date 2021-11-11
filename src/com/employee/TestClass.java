@@ -7,6 +7,7 @@ public class TestClass {
 
 		Employee obj = new Employee();
 		obj.computeEmployeeWage();
+		
 	}
 
 }
