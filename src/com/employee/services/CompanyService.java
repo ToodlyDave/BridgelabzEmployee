@@ -3,31 +3,29 @@ package com.employee.services;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import com.employee.entities.Company;
-import com.employee.entities.Employee;
+import com.employee.entities.CompanyEmpWage;
 
 public class CompanyService {
 	
 	Scanner scan = new Scanner(System.in);
 
 	public void addCompany() {
-		
-		ArrayList<Employee> temp = Company.getCompanyList();
-		Employee e = getInfo();
-		e.objEmployeeService.computeEmployeeWage(e);
+		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
+		CompanyEmpWage e = getInfo();
+		EmpWageBuilder.computeEmployeeWage(e);
 		temp.add(e);
-		Company.setCompanyList(temp);
+		EmpWageBuilder.setCompanyList(temp);
 	}
 	
 	public void printCompany() {
 		
-		ArrayList<Employee> temp = Company.getCompanyList();
-		for (Employee employee : temp) {
+		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
+		for (CompanyEmpWage employee : temp) {
 			System.out.println(employee);
 		}
 	}
 	
-	public Employee getInfo() {
+	public CompanyEmpWage getInfo() {
 //		scan.nextLine(); // to read the extra \n before it
 		System.out.print("\n\n Please enter the name of the company: ");
 		String name = scan.next();
@@ -41,6 +39,6 @@ public class CompanyService {
 		System.out.print(" Please enter the wages per hour: ");
 		int wages_per_hour = scan.nextInt();
 		
-		return new Employee(name, no_of_days, max_hours_in_month, wages_per_hour);
+		return new CompanyEmpWage(name, no_of_days, max_hours_in_month, wages_per_hour);
 	}
 }

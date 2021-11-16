@@ -2,14 +2,22 @@ package com.employee.services;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import com.employee.entities.Company;
-import com.employee.entities.Employee;
+import com.employee.entities.CompanyEmpWage;
 
 public class EmpWageBuilder {	
 	
+	private static ArrayList<CompanyEmpWage> CompanyList = new ArrayList<CompanyEmpWage>();
 	Scanner scan = new Scanner(System.in);
-	public void computeEmployeeWage(Employee e) {	
+
+	public static ArrayList<CompanyEmpWage> getCompanyList() {
+		return CompanyList;
+	}
+
+	public static void setCompanyList(ArrayList<CompanyEmpWage> companyList) {
+		CompanyList = companyList;
+	}
+	
+	public static void computeEmployeeWage(CompanyEmpWage e) {	
 		
 		final int IS_PART_TIME = 1;
 		final int IS_FULL_TIME = 2;
