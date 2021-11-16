@@ -1,5 +1,9 @@
 package com.employee.entities;
 
+import java.util.ArrayList;
+
+import com.employee.services.EmpWageBuilder;
+
 public class Employee {
 
 	private int wage = 0;    
@@ -7,12 +11,16 @@ public class Employee {
 	private int hours = 0;   
 	private String name;
 	
+	public EmpWageBuilder objEmployeeService;
+	
 	public Employee(String name, int days, int hours, int wage ) {
 		super();
 		this.wage = wage;
 		this.days = days;
 		this.hours = hours;
 		this.name = name;
+		
+		objEmployeeService = new EmpWageBuilder();
 	}
 
 	public int getWage() {

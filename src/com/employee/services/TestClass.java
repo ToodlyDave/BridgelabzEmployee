@@ -10,7 +10,7 @@ public class TestClass {
 		boolean loop = true;
 		int ch;
 		
-		EmployeeService obj = new EmployeeService();
+		CompanyService obj = new CompanyService();
 		
 		while (loop) {
 			System.out.println("\n ======== ");
