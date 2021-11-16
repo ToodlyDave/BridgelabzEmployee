@@ -1,6 +1,5 @@
-package com.employee;
+package com.employee.services;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestClass {
@@ -11,23 +10,20 @@ public class TestClass {
 		boolean loop = true;
 		int ch;
 		
-		ArrayList<Employee> obj = new ArrayList<Employee>();
+		EmployeeService obj = new EmployeeService();
 		
 		while (loop) {
-			System.out.println(" ======== ");
+			System.out.println("\n ======== ");
 			System.out.println(" 1. Add company\n 2. Print Employee Details\n 3. Exit");
 			System.out.print(" Please enter your choice: ");
 			ch = scan.nextInt();
 			
 			switch(ch) {
 			case 1:
-				obj.add( new Employee() );
-				obj.get(obj.size() - 1).getInfo();
+				obj.addCompany();
 				break;
 			case 2:
-				for(int i = 0; i < obj.size(); i++) {
-					obj.get(i).printEmployee();
-				}
+				obj.printCompany();
 				break;
 			case 3:
 				return;
