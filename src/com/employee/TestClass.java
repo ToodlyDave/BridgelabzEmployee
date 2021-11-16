@@ -1,5 +1,6 @@
 package com.employee;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestClass {
@@ -7,30 +8,35 @@ public class TestClass {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String name;
+		boolean loop = true;
+		int ch;
 		
-		System.out.print(" Please enter the no of companies: ");
-		int n = scan.nextInt();
+		ArrayList<Employee> obj = new ArrayList<Employee>();
 		
-		Employee obj = new Employee();
-		
-		for (int i = 0; i < n; i++) {
+		while (loop) {
+			System.out.println(" ======== ");
+			System.out.println(" 1. Add company\n 2. Print Employee Details\n 3. Exit");
+			System.out.print(" Please enter your choice: ");
+			ch = scan.nextInt();
 			
-			scan.nextLine(); // to read the extra \n before it
-			System.out.print("\n\n Please enter the name of the company: ");
-			name = scan.nextLine();
-			
-			System.out.print(" Please enter the max no of working days in a month: ");
-			int no_of_days = scan.nextInt();
-			
-			System.out.print(" Please enter the max no fo working hours in a month: ");
-			int max_hours_in_month = scan.nextInt();
-			
-			System.out.print(" Please enter the wages per hour: ");
-			int wages_per_hour = scan.nextInt();
-			
-			obj.computeEmployeeWage(name, no_of_days, max_hours_in_month, wages_per_hour);
-			name = "";
+			switch(ch) {
+			case 1:
+				obj.add( new Employee() );
+				obj.get(obj.size() - 1).getInfo();
+				break;
+			case 2:
+				for(int i = 0; i < obj.size(); i++) {
+					obj.get(i).printEmployee();
+				}
+				break;
+			case 3:
+				return;
+			default: 
+				System.out.println(" Please enter valid input");
+				break;
+			}
 		}
+		
 		scan.close();		
 	}
 
