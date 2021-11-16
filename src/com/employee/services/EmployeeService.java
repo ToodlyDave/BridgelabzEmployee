@@ -1,24 +1,47 @@
-package com.employee;
+package com.employee.services;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Employee {	
+import com.employee.entities.Company;
+import com.employee.entities.Employee;
+
+public class EmployeeService {	
 	
 	Scanner scan = new Scanner(System.in);
 	
-	private int wage = 0;    
-	private int days = 0;    
-	private int hours = 0;   
-	private String name;
+	
+	public void addCompany() {
+	
+		ArrayList<Employee> temp = Company.getCompanyList();
+		Employee e = getInfo();
+		temp.add(e);
+		computeEmployeeWage(e);
+		Company.setCompanyList(temp);
+	}
+	
+	public void printCompany() {
+		
+		ArrayList<Employee> temp = Company.getCompanyList();
+		for (Employee employee : temp) {
+			System.out.println(employee);
+		}
+	}
 
-	public void computeEmployeeWage(String name, int no_of_days, int max_hours_in_month, int wages_per_hour) {	
+	public void computeEmployeeWage(Employee e) {	
 		
 		final int IS_PART_TIME = 1;
 		final int IS_FULL_TIME = 2;
 		final int PART_TIME_HOURS = 4;
 		final int FULL_TIME_HOURS = 8;	
 		
-		this.name = name;
+		int days = 0;
+		int hours = 0;
+		
+		String name = e.getName();
+		int no_of_days = e.getDays();
+		int max_hours_in_month = e.getHours();
+		int wages_per_hour = e.getWage();
 		
 		while (days < no_of_days && hours < max_hours_in_month) {
 			
@@ -35,35 +58,36 @@ public class Employee {
 				
 			case IS_PART_TIME: 
 					if (hours + PART_TIME_HOURS > max_hours_in_month) {
-						System.out.println(" skip");
+//						System.out.println(" skip");
 						break;
 					}
-					System.out.println(" part time");
+//					System.out.println(" part time");
 					hours += PART_TIME_HOURS;
 					days++;
 					break;
 			case IS_FULL_TIME:
 					if (hours + FULL_TIME_HOURS > max_hours_in_month) {
-						System.out.println(" skip");
+//						System.out.println(" skip");
 						break;
 					}
-					System.out.println(" full time");
+//					System.out.println(" full time");
 					hours += FULL_TIME_HOURS;
 					days++;
 					break;				
 			}
 		}
 		
-		wage = hours * wages_per_hour;
-		
-		printEmployee();
+		e.setDays(days);
+		e.setHours(hours);
+		e.setWage(hours * wages_per_hour);
+		System.out.println(e);
 	}
 	
 	
-	public void getInfo() {
+	public Employee getInfo() {
 //		scan.nextLine(); // to read the extra \n before it
 		System.out.print("\n\n Please enter the name of the company: ");
-		String name = scan.nextLine();
+		String name = scan.next();
 		
 		System.out.print(" Please enter the max no of working days in a month: ");
 		int no_of_days = scan.nextInt();
@@ -74,13 +98,7 @@ public class Employee {
 		System.out.print(" Please enter the wages per hour: ");
 		int wages_per_hour = scan.nextInt();
 		
-		computeEmployeeWage(name, no_of_days, max_hours_in_month, wages_per_hour);
+		return new Employee(name, no_of_days, max_hours_in_month, wages_per_hour);
 	}
-	
-	public void printEmployee() {
-		System.out.println(" ==== " + name + " ====");
-		System.out.println(" Total wages earned = " + wage);
-		System.out.println(" Total working days = " + days);
-		System.out.println(" Total working hours = " + hours);	
-	}
+		
 }
