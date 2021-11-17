@@ -30,8 +30,7 @@ public class TestClass {
 				System.out.println(" Please enter valid input");
 				break;
 			}
-		}
-		
+		}		
 		scan.close();		
 	}
 
