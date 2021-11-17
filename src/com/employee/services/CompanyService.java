@@ -4,19 +4,23 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.employee.entities.CompanyEmpWage;
+import com.employee.entities.CompanyInterface;
 
-public class CompanyService {
+public class CompanyService implements CompanyInterface{
 	
 	Scanner scan = new Scanner(System.in);
+	EmpWageBuilder obj = new EmpWageBuilder();
 
+	@Override
 	public void addCompany() {
 		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
 		CompanyEmpWage e = getInfo();
-		EmpWageBuilder.computeEmployeeWage(e);
+		obj.computeEmployeeWage(e);
 		temp.add(e);
 		EmpWageBuilder.setCompanyList(temp);
 	}
 	
+	@Override
 	public void printCompany() {
 		
 		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
@@ -25,6 +29,7 @@ public class CompanyService {
 		}
 	}
 	
+	@Override
 	public CompanyEmpWage getInfo() {
 //		scan.nextLine(); // to read the extra \n before it
 		System.out.print("\n\n Please enter the name of the company: ");

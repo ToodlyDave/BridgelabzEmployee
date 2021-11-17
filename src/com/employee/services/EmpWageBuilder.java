@@ -3,8 +3,9 @@ package com.employee.services;
 import java.util.ArrayList;
 import java.util.Scanner;
 import com.employee.entities.CompanyEmpWage;
+import com.employee.entities.EmpWageInterface;
 
-public class EmpWageBuilder {	
+public class EmpWageBuilder implements EmpWageInterface{	
 	
 	private static ArrayList<CompanyEmpWage> CompanyList = new ArrayList<CompanyEmpWage>();
 	Scanner scan = new Scanner(System.in);
@@ -17,7 +18,8 @@ public class EmpWageBuilder {
 		CompanyList = companyList;
 	}
 	
-	public static void computeEmployeeWage(CompanyEmpWage e) {	
+	@Override
+	public void computeEmployeeWage(CompanyEmpWage e) {	
 		
 		final int IS_PART_TIME = 1;
 		final int IS_FULL_TIME = 2;
@@ -27,7 +29,6 @@ public class EmpWageBuilder {
 		int days = 0;
 		int hours = 0;
 		
-		String name = e.getName();
 		int no_of_days = e.getDays();
 		int max_hours_in_month = e.getHours();
 		int wages_per_hour = e.getWage();
@@ -72,7 +73,5 @@ public class EmpWageBuilder {
 		System.out.println(e);
 	}
 	
-	
-
 		
 }
