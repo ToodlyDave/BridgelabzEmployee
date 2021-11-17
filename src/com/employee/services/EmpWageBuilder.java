@@ -76,5 +76,5 @@ public class EmpWageBuilder implements EmpWageInterface{
 		System.out.println(e);
 	}
 	
-		
+	
 }

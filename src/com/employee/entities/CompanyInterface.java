@@ -7,4 +7,6 @@ public interface CompanyInterface {
 	public void printCompany();
 	
 	public CompanyEmpWage getInfo();
+	
+	public void findCompany();
 }

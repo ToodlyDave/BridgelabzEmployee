@@ -46,4 +46,21 @@ public class CompanyService implements CompanyInterface{
 		
 		return new CompanyEmpWage(name, no_of_days, max_hours_in_month, wages_per_hour);
 	}
+
+	@Override
+	public void findCompany() {
+		ArrayList<CompanyEmpWage> temp = EmpWageBuilder.getCompanyList();
+		
+		System.out.println(" Please enter the name of the company: ");
+		String name = scan.next();
+		
+		for (CompanyEmpWage companyEmpWage : temp) {
+			if(companyEmpWage.getName().equals(name)) {
+				System.out.println("The total wages for this company: " + companyEmpWage.getWage());
+				return;
+			}
+		}
+		
+		System.out.println(" Company of this name does not exist!");
+	}
 }

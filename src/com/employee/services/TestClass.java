@@ -13,7 +13,7 @@ public class TestClass {
 		
 		while (loop) {
 			System.out.println("\n ======== ");
-			System.out.println(" 1. Add company\n 2. Print Employee Details\n 3. Exit");
+			System.out.println(" 1. Add company\n 2. Print Employee Details\n 3. Print Company Wage\n 4. Exit");
 			System.out.print(" Please enter your choice: ");
 			ch = scan.nextInt();
 			
@@ -25,6 +25,9 @@ public class TestClass {
 				obj.printCompany();
 				break;
 			case 3:
+				obj.findCompany();
+				break;
+			case 4:
 				return;
 			default: 
 				System.out.println(" Please enter valid input");
