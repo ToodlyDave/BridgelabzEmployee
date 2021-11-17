@@ -10,6 +10,7 @@ public class CompanyEmpWage {
 	private int days = 0;    
 	private int hours = 0;   
 	private String name;
+	private ArrayList<String> daily_wages = new ArrayList<>();
 	
 	public CompanyEmpWage(String name, int days, int hours, int wage ) {
 		super();
@@ -17,6 +18,14 @@ public class CompanyEmpWage {
 		this.days = days;
 		this.hours = hours;
 		this.name = name;
+	}	
+	
+	public ArrayList<String> getDaily_wages() {
+		return daily_wages;
+	}
+
+	public void setDaily_wages(ArrayList<String> daily_wages) {
+		this.daily_wages = daily_wages;
 	}
 
 	public int getWage() {
@@ -54,6 +63,9 @@ public class CompanyEmpWage {
 	@Override
 	public String toString() {		
 		System.out.println("\n ==== " + name + " ====");
+		for (String string : daily_wages) {
+			System.out.println(string);
+		}
 		System.out.println(" Total wages earned = " + wage);
 		System.out.println(" Total working days = " + days);
 		System.out.print(" Total working hours = " + hours);	

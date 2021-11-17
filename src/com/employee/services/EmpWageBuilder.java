@@ -32,6 +32,7 @@ public class EmpWageBuilder implements EmpWageInterface{
 		int no_of_days = e.getDays();
 		int max_hours_in_month = e.getHours();
 		int wages_per_hour = e.getWage();
+		ArrayList<String> daily_wages = e.getDaily_wages();
 		
 		while (days < no_of_days && hours < max_hours_in_month) {
 			
@@ -54,6 +55,7 @@ public class EmpWageBuilder implements EmpWageInterface{
 //					System.out.println(" part time");
 					hours += PART_TIME_HOURS;
 					days++;
+					daily_wages.add("part time: " + (PART_TIME_HOURS * wages_per_hour));
 					break;
 			case IS_FULL_TIME:
 					if (hours + FULL_TIME_HOURS > max_hours_in_month) {
@@ -63,6 +65,7 @@ public class EmpWageBuilder implements EmpWageInterface{
 //					System.out.println(" full time");
 					hours += FULL_TIME_HOURS;
 					days++;
+					daily_wages.add("full time: " + (FULL_TIME_HOURS * wages_per_hour));
 					break;				
 			}
 		}
