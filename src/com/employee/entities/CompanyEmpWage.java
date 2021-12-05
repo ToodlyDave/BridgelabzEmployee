@@ -2,8 +2,6 @@ package com.employee.entities;
 
 import java.util.ArrayList;
 
-import com.employee.services.EmpWageBuilder;
-
 public class CompanyEmpWage {
 
 	private int wage = 0;    

@@ -2,11 +2,9 @@ package com.employee.entities;
 
 public interface CompanyInterface {
 
-	public void addCompany();
+	public void addCompany(CompanyEmpWage e);
 	
 	public void printCompany();
-	
-	public CompanyEmpWage getInfo();
 	
 	public void findCompany();
 }

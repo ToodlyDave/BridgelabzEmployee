@@ -1,14 +1,12 @@
 package com.employee.services;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 import com.employee.entities.CompanyEmpWage;
 import com.employee.entities.EmpWageInterface;
 
 public class EmpWageBuilder implements EmpWageInterface{	
 	
 	private static ArrayList<CompanyEmpWage> CompanyList = new ArrayList<CompanyEmpWage>();
-	Scanner scan = new Scanner(System.in);
 
 	public static ArrayList<CompanyEmpWage> getCompanyList() {
 		return CompanyList;
